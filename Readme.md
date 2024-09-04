@@ -12,9 +12,9 @@ This first project is going to be mostly about getting comfortable with Python, 
                   o — o
                 4/ \5/ \6
                 o — o — o
-              7/ \8/ \9/ \A
+              7/ \8/ \9/ \10
               o — o — o — o
-            B/ \C/ \D/ \E/ \F
+            11/ \12/ \13/ \14/ \15
             o — o — o — o — o
 ```
 
