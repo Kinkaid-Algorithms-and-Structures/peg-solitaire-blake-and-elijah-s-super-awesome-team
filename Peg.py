@@ -8,6 +8,13 @@ class PegHole:
         pass
 
 
+    def print(self):
+        if self.filled:
+            return "X"
+        else:
+            return "O"
+
+
 
 '''
         Pegs holes to need to be an object with these values

@@ -1,6 +1,9 @@
 import logging, datetime
+
+from BoardMaker import BoardMaker
 from KinkaidDecorators import log_start_stop_method
-from Peg import PegHole
+#from Peg import PegHole
+from BoardMaker import BoardMaker
 
 logging.basicConfig(level=logging.INFO)  # simple version to the output console
 # logging.basicConfig(level=logging.DEBUG, filename=f"log {datetime.datetime.now():%m-%d@%H:%M:%S}.txt",
@@ -10,30 +13,9 @@ logging.basicConfig(level=logging.INFO)  # simple version to the output console
 class PegSolitaireRunner:
     def __init__(self):
         logging.info("Initializing.")
-        global moving
-        moving = None
+        board_maker = BoardMaker()
         global board
-        board = [["0"],
-                 ["1","2"],
-                 ["3","4","5"],
-                 ["6","7","8","9"],
-                 ["10","11","12","13","14",]]
-        tag_list = [1,2,3,1,4,1,2,3,2,3,1,4,1,4]
-        place = 0
-        row_counter = 0
-        new_board = []
-        for row in board:
-            row_counter += 1
-            col_counter = 0
-            new_board.append([])
-           # print(row[0])
-            for spot in row: #These aren't being added to the board, Not sure why
-                print(spot)
-                col_counter += 1
-                new_board[row_counter-1].append(PegHole(place, True, tag_list[place], row_counter, col_counter))
-            place += 1
-        board = new_board
-        print(board)
+        board = board_maker.get_board()
         self.ask_move()
        # print(board[0][0])
 
@@ -47,7 +29,15 @@ class PegSolitaireRunner:
     def ask_move(self):
         origin = input("What peg do you want to move?")
         end = input("Where do you want the peg to go?")
-        self.check_legality(origin, end)
+        global organ
+        global ender
+        for i in range(len(board)):
+            for j in range(len(board[i])):
+                if board[i][j].place == origin:
+                    organ = board[i][j]
+                elif board[i][j].place == end:
+                    ender = board[i][j]
+        self.check_legality(organ, ender)
     def check_legality(self,origin,end):
         '''
         TO DO, Origin and End need to convert to their objects
