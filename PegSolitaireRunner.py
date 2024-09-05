@@ -30,7 +30,7 @@ class PegSolitaireRunner:
         origin = input("What peg do you want to move?")
         end = input("Where do you want the peg to go?")
         global organ
-        global ender
+        global ender #hehe
         for i in range(len(board)):
             for j in range(len(board[i])):
                 if board[i][j].place == origin:
