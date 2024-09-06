@@ -10,7 +10,7 @@ class BoardMaker:
                  ["X", "X", "X"],
                  ["X", "X", "X", "X"],
                  ["X", "X", "X", "X", "X"]]
-        tag_list = [1, 2, 3, 1, 4, 1, 2, 3, 2, 3, 1, 4, 1, 4]
+        tag_list = [1, 2, 3, 1, 4, 1, 2, 3, 2, 3, 1, 4, 1, 4, 1]
         place = 0
         row_counter = 0
         new_board = []
@@ -19,11 +19,11 @@ class BoardMaker:
             col_counter = 0
             new_board.append([])
             #print(row[0])
-            for spot in row:  # These aren't being added to the board, Not sure why
-                #print(spot)
+            for spot in row:
                 col_counter += 1
                 new_board[row_counter - 1].append(PegHole(place, True, tag_list[place], row_counter, col_counter))
-            place += 1
+                print(place)
+                place += 1
         new_board[0][0].filled = False
         board = new_board
 

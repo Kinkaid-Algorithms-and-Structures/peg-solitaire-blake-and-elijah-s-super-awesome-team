@@ -13,6 +13,7 @@ logging.basicConfig(level=logging.INFO)  # simple version to the output console
 class PegSolitaireRunner:
     def __init__(self):
         logging.info("Initializing.")
+        global board_maker
         board_maker = BoardMaker()
         global board
         board = board_maker.get_board()
@@ -27,6 +28,7 @@ class PegSolitaireRunner:
         # any variables or methods from "self." Once you do, it will stop pestering you about it.
         pass
     def ask_move(self):
+        board_maker.make_board()
         origin = int(input("What peg do you want to move?"))
         end = int(input("Where do you want the peg to go?"))
         global organ
@@ -39,30 +41,34 @@ class PegSolitaireRunner:
                     organ = board[i][j]
                 elif board[i][j].place == end:
                     ender = board[i][j]
-
+        print(organ)
         self.check_legality(organ, ender)
     def check_legality(self,origin,end):
 
-
-        if origin.tag == end.tag and (origin.row - end.row) + (origin.col - end.col) <= 2:
+        print(origin.tag)
+        print(end.tag)
+        print(origin.row, end.row)
+        print(origin.col, end.col)
+        print((origin.row - end.row))
+        if origin.tag == end.tag:
             print("down one")
-            if (origin.row - end.row) == -2 and (origin.col - end.col) == 2: #diag southeast check
-                board.move(origin,[origin.row+1][origin.col+1],end)
+            if (origin.row - end.row) == -2 and (origin.col - end.col) == -2: #diag southeast check
+                board_maker.move(origin,(origin.row+1),(origin.col+1),end)
                 print("moved")
-            elif (origin.row - end.row) == 2 and (origin.col - end.col) == -2: #diag northwest check
-                board.move(origin,[origin.row-1][origin.col-1],end)
+            elif (origin.row - end.row) == 2 and (origin.col - end.col) == 2: #diag northwest check
+                board_maker.move(origin,(origin.row-1),(origin.col-1),end)
                 print("moved")
             elif (origin.row - end.row) == 2 and (origin.col - end.col) == 0: #down check
-                board.move(origin,[origin.row+1][origin.col],end)
+                board_maker.move(origin,[origin.row+1][origin.col],end)
                 print("moved")
             elif (origin.row - end.row) == - 2 and (origin.col - end.col) == 0:  #up check
-                board.move(origin, [origin.row-1][origin.col], end)
+                board_maker.move(origin, [origin.row-1][origin.col], end)
                 print("moved")
             elif (origin.row - end.row) == 0 and (origin.col - end.col) == -2: #right check
-                board.move(origin,[origin.row][origin.col+1],end)
+                board_maker.move(origin,[origin.row][origin.col+1],end)
                 print("moved")
             elif (origin.row - end.row) == 0 and (origin.col - end.col) == 2: #left check
-                board.move(origin, [origin.row-1][origin.col-1], end)
+                board_maker.move(origin, [origin.row-1][origin.col-1], end)
                 print("moved")
             else:
                 #move is illegal
