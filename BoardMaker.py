@@ -36,10 +36,16 @@ class BoardMaker:
         print("  ", board[3][0].print(), " ", board[3][1].print(), " ", board[3][2].print(), " ", board[3][3].print(), "   ")
         print("", board[4][0].print(), " ", board[4][1].print(), " ", board[4][2].print(), " ", board[4][3].print(), " ", board[4][4].print())
 
-    #def move(self, from_space, over_space, too_space):
-     #   board[from_space] = "O"
-      #  board[over_space] = "O"
-       # board[too_space] = "X"
+    def move(self, origin, del_row, del_col, end):
+        organ = None
+        for i in range(len(board)):
+            for j in range(len(board[i])):
+                if board[i][j].row == del_row and board[i][j].col == del_col:
+                    organ = board[i][j]
+        origin.filled = False
+        organ.filled = False
+        end.filled = True
+
 
     def check_board(self) -> bool :
         number_of_xs = 0

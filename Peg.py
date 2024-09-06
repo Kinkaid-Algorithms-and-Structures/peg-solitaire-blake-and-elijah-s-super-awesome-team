@@ -15,7 +15,6 @@ class PegHole:
             return "O"
 
 
-
 '''
         Pegs holes to need to be an object with these values
         Place:0-14

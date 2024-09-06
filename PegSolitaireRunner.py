@@ -79,6 +79,7 @@ class PegSolitaireRunner:
             print("That move seems to be illegal \n try again!")
             self.ask_move()
             pass
+        self.ask_move()
 
 if __name__ == "__main__":
     game = PegSolitaireRunner()
