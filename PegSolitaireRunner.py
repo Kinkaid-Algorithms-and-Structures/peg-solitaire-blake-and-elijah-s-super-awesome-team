@@ -54,15 +54,17 @@ class PegSolitaireRunner:
             print("down one")
             if (origin.row - end.row) == -2 and (origin.col - end.col) == -2: #diag southeast check
                 board_maker.move(origin,(origin.row+1),(origin.col+1),end)
+                print("that")
                 print("moved")
             elif (origin.row - end.row) == 2 and (origin.col - end.col) == 2: #diag northwest check
                 board_maker.move(origin,(origin.row-1),(origin.col-1),end)
+                print("that1")
                 print("moved")
-            elif (origin.row - end.row) == 2 and (origin.col - end.col) == 0: #down check
-                board_maker.move(origin,(origin.row+1),(origin.col),end)
-                print("moved")
-            elif (origin.row - end.row) == - 2 and (origin.col - end.col) == 0:  #up check
+            elif (origin.row - end.row) == 2 and (origin.col - end.col) == 0: #up check
                 board_maker.move(origin,(origin.row-1),(origin.col),end)
+                print("moved")
+            elif (origin.row - end.row) == - 2 and (origin.col - end.col) == 0:  #down check
+                board_maker.move(origin,(origin.row+1),(origin.col),end)
                 print("moved")
             elif (origin.row - end.row) == 0 and (origin.col - end.col) == -2: #right check
                 board_maker.move(origin,(origin.row),(origin.col+1),end)
