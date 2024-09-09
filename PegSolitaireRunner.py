@@ -44,13 +44,15 @@ class PegSolitaireRunner:
         print(organ)
         self.check_legality(organ, ender)
     def check_legality(self,origin,end):
-
-        print(origin.tag)
+        board_maker.check_board()
+        print(origin.tag)   
         print(end.tag)
         print(origin.row, end.row)
         print(origin.col, end.col)
         print((origin.row - end.row))
-        if origin.tag == end.tag:
+
+        #if origin.tag == end.tag:
+        if True:
             print("down one")
             if (origin.row - end.row) == -2 and (origin.col - end.col) == -2: #diag southeast check
                 board_maker.move(origin,(origin.row+1),(origin.col+1),end)
@@ -61,16 +63,16 @@ class PegSolitaireRunner:
                 print("that1")
                 print("moved")
             elif (origin.row - end.row) == 2 and (origin.col - end.col) == 0: #up check
-                board_maker.move(origin,(origin.row-1),(origin.col),end)
+                board_maker.move(origin,(origin.row-1),origin.col,end)
                 print("moved")
             elif (origin.row - end.row) == - 2 and (origin.col - end.col) == 0:  #down check
-                board_maker.move(origin,(origin.row+1),(origin.col),end)
+                board_maker.move(origin,(origin.row+1),origin.col,end)
                 print("moved")
             elif (origin.row - end.row) == 0 and (origin.col - end.col) == -2: #right check
-                board_maker.move(origin,(origin.row),(origin.col+1),end)
+                board_maker.move(origin,origin.row,(origin.col+1),end)
                 print("moved")
             elif (origin.row - end.row) == 0 and (origin.col - end.col) == 2: #left check
-                board_maker.move(origin,(origin.row),(origin.col-1),end)
+                board_maker.move(origin,origin.row,(origin.col-1),end)
                 print("moved")
             else:
                 #move is illegal
@@ -82,6 +84,7 @@ class PegSolitaireRunner:
             self.ask_move()
             pass
         self.ask_move()
+
 
 if __name__ == "__main__":
     game = PegSolitaireRunner()
