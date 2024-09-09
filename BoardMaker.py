@@ -50,8 +50,9 @@ class BoardMaker:
     def check_board(self) -> bool :
         number_of_xs = 0
         for i in range(len(board)):
-            if board[i] == "X":
-                number_of_xs = number_of_xs + 1
+            for j in range(len(board[i])):
+                if board[i][j] == "X":
+                    number_of_xs = number_of_xs + 1
         if number_of_xs > 1:
             return False
         else:
