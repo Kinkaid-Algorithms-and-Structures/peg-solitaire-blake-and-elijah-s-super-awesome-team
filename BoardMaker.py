@@ -1,3 +1,4 @@
+import sys
 from operator import truediv
 from tokenize import triple_quoted
 from Peg import PegHole
@@ -18,13 +19,12 @@ class BoardMaker:
             row_counter += 1
             col_counter = 0
             new_board.append([])
-            #print(row[0])
             for spot in row:
                 col_counter += 1
-                new_board[row_counter - 1].append(PegHole(place, True, tag_list[place], row_counter, col_counter))
-                print(place)
+                new_board[row_counter - 1].append(PegHole(place, False, tag_list[place], row_counter, col_counter))
                 place += 1
-        new_board[0][0].filled = False
+        new_board[0][0].filled = True
+        new_board[1][0].filled = True
         board = new_board
 
     #def create_board(self, new_board):
@@ -51,11 +51,13 @@ class BoardMaker:
         number_of_xs = 0
         for i in range(len(board)):
             for j in range(len(board[i])):
-                if board[i][j] == "X":
+                if board[i][j].filled:
                     number_of_xs = number_of_xs + 1
         if number_of_xs > 1:
             return False
         else:
+            print('You Won, Congrats!')
+            sys.exit()
             return True
 
 
