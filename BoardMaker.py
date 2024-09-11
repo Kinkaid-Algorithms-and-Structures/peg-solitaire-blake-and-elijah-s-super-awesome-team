@@ -28,7 +28,7 @@ class BoardMaker:
                 col_counter += 1
                 new_board[row_counter - 1].append(PegHole(place, True, tag_list[place], row_counter, col_counter))
                 place += 1
-        new_board[0][0].filled = False
+        #new_board[0][0].filled = False
         board = new_board
 
     #def create_board(self, new_board):
