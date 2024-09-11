@@ -22,14 +22,23 @@ class PegSolitaireRunner:
         board_maker.make_board()
         origin = None
         end = None
-        try:
-            origin = int(input("What peg do you want to move?"))
-        except:
-            print("Please enter an integer")
-        try:
-            end = int(input("Where do you want the peg to go?"))
-        except:
-            print("Please enter an integer")
+        while origin is None or (origin > 14 or origin < 0):
+            try:
+                origin = int(input("What peg do you want to move?"))
+                if origin > 14 or origin < 0:
+                    print("Please enter an integer in the bounds of the board")
+            except:
+                print("Please enter an integer")
+
+        while end is None or end > 14 or end < 0 or end == origin:
+            try:
+                end = int(input("Where do you want the peg to go?"))
+                if (end > 14 or end < 0) or end == origin:
+                    print("Please enter an integer in the bounds of the board that isn't the same as the origin")
+            except:
+                print("Please enter an integer")
+
+
         global organ
         organ = None
         global ender
