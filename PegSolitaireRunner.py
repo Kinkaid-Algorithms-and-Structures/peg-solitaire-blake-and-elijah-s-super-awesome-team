@@ -22,19 +22,6 @@ class PegSolitaireRunner:
         board_maker.make_board()
         origin = None
         end = None
-        initial = None
-        try:
-            initial = int(input("What peg do you want to start open?"))
-        except:
-            print("Please enter an integer")
-
-        for i in range(len(board)):
-            for j in range(len(board[i])):
-                if board[i][j].place == initial:
-                    board[i][j].filled = False
-
-        board_maker.make_board()
-
         try:
             origin = int(input("What peg do you want to move?"))
         except:

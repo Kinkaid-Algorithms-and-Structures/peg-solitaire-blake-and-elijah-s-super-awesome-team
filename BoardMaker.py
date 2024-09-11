@@ -1,6 +1,4 @@
 import sys
-from operator import truediv
-from tokenize import triple_quoted
 from Peg import PegHole
 
 class BoardMaker:
@@ -61,7 +59,7 @@ class BoardMaker:
             return False
         else:
             print('You Won, Congrats!')
-            sys.ext
+            sys.ext()
             return True
 
 
