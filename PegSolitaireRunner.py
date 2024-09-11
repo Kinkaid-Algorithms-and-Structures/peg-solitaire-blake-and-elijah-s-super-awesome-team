@@ -20,8 +20,16 @@ class PegSolitaireRunner:
         pass
     def ask_move(self):
         board_maker.make_board()
-        origin = int(input("What peg do you want to move?"))
-        end = int(input("Where do you want the peg to go?"))
+        origin = None
+        end = None
+        try:
+            origin = int(input("What peg do you want to move?"))
+        except:
+            print("Please enter an integer")
+        try:
+            end = int(input("Where do you want the peg to go?"))
+        except:
+            print("Please enter an integer")
         global organ
         organ = None
         global ender
