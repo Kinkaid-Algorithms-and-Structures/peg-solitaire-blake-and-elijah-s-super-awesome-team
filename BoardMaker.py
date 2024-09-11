@@ -26,20 +26,19 @@ class BoardMaker:
             new_board.append([])
             for spot in row:
                 col_counter += 1
-                new_board[row_counter - 1].append(PegHole(place, False, tag_list[place], row_counter, col_counter))
+                new_board[row_counter - 1].append(PegHole(place, True, tag_list[place], row_counter, col_counter))
                 place += 1
-        new_board[0][0].filled = True
-        new_board[1][0].filled = True
+        new_board[0][0].filled = False
         board = new_board
 
     #def create_board(self, new_board):
 
     def make_board(self):
-        print("        ", board[0][0].print(), "       ")
-        print("      ", board[1][0].print(), " ", board[1][1].print(), "     ")
-        print("    ", board[2][0].print(), " ", board[2][1].print(), " ", board[2][2].print(), "    ")
-        print("  ", board[3][0].print(), " ", board[3][1].print(), " ", board[3][2].print(), " ", board[3][3].print(), "   ")
-        print("", board[4][0].print(), " ", board[4][1].print(), " ", board[4][2].print(), " ", board[4][3].print(), " ", board[4][4].print())
+        print(f"         {board[0][0].print()}        ")
+        print(f"       {board[1][0].print()}   {board[1][1].print()}     ")
+        print(f"     {board[2][0].print()}   {board[2][1].print()}   {board[2][2].print()}     ")
+        print(f"   {board[3][0].print()}   {board[3][1].print()}   {board[3][2].print()}   {board[3][3].print()}    ")
+        print(f" {board[4][0].print()}   {board[4][1].print()}   {board[4][2].print()}   {board[4][3].print()}   {board[4][4].print()}")
 
     def move(self, origin, del_row, del_col, end):
         organ = None
@@ -62,7 +61,7 @@ class BoardMaker:
             return False
         else:
             print('You Won, Congrats!')
-            sys.exit()
+            sys.ext
             return True
 
 
