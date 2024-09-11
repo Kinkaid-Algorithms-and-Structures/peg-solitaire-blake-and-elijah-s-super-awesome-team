@@ -11,11 +11,11 @@ class BoardMaker:
                  ["X", "X", "X"],
                  ["X", "X", "X", "X"],
                  ["X", "X", "X", "X", "X"]]
-        print("           0  ")
-        print("         1   2 ")
-        print("       3   4   5")
-        print("    6    7    8    9")
-        print(" 10   11   12   13   14")
+        print("         0  ")
+        print("       1   2 ")
+        print("     3   4   5")
+        print("   6   7   8   9")
+        print(" 10  11  12  13  14")
         tag_list = [1, 2, 3, 1, 4, 1, 2, 3, 2, 3, 1, 4, 1, 4, 1]
         place = 0
         row_counter = 0
