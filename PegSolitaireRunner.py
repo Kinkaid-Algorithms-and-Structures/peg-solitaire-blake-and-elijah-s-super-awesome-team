@@ -23,10 +23,6 @@ class PegSolitaireRunner:
         origin = None
         end = None
         initial = None
-        try:
-            initial = int(input("What peg do you want to start open?"))
-        except:
-            print("Please enter an integer")
 
         for i in range(len(board)):
             for j in range(len(board[i])):
@@ -34,15 +30,21 @@ class PegSolitaireRunner:
                     board[i][j].filled = False
 
         board_maker.make_board()
+        while origin is None or (origin > 14 or origin < 0):
+            try:
+                origin = int(input("What peg do you want to move?"))
+                if origin > 14 or origin < 0:
+                    print("Please enter an integer in the bounds of the board")
+            except:
+                print("Please enter an integer")
 
-        try:
-            origin = int(input("What peg do you want to move?"))
-        except:
-            print("Please enter an integer")
-        try:
-            end = int(input("Where do you want the peg to go?"))
-        except:
-            print("Please enter an integer")
+        while end is None or end > 14 or end < 0 or end == origin:
+            try:
+                end = int(input("Where do you want the peg to go?"))
+                if (end > 14 or end < 0) or end == origin:
+                    print("Please enter an integer in the bounds of the board that isn't the same as the origin")
+            except:
+                print("Please enter an integer")
         global organ
         organ = None
         global ender
