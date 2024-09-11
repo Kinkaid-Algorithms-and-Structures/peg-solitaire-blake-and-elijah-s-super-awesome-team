@@ -59,7 +59,7 @@ class BoardMaker:
             return False
         else:
             print('You Won, Congrats!')
-            sys.ext()
+            sys.exit()
             return True
 
 

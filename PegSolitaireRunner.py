@@ -9,6 +9,16 @@ class PegSolitaireRunner:
         board_maker = BoardMaker()
         global board
         board = board_maker.get_board()
+        initial = None
+        board_maker.make_board()
+        try:
+            initial = int(input("What peg do you want to start open?"))
+        except:
+            print("Please enter an integer")
+        for i in range(len(board)):
+            for j in range(len(board[i])):
+                if board[i][j].place == initial:
+                    board[i][j].filled = False
         self.ask_move()
 
 
@@ -19,24 +29,9 @@ class PegSolitaireRunner:
         # any variables or methods from "self." Once you do, it will stop pestering you about it.
         pass
     def ask_move(self):
-        board_maker.make_board()
         origin = None
         end = None
-        initial = None
-
-        try:
-            initial = int(input("What peg do you want to start open?"))
-        except:
-            print("Please enter an integer")
-
-        for i in range(len(board)):
-            for j in range(len(board[i])):
-                if board[i][j].place == initial:
-                    board[i][j].filled = False
-
         board_maker.make_board()
-
-
         while origin is None or (origin > 14 or origin < 0):
             try:
                 origin = int(input("What peg do you want to move?"))
