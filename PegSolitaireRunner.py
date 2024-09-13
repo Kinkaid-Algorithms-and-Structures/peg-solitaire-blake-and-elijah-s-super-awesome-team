@@ -88,6 +88,7 @@ class PegSolitaireRunner:
             print("That move seems to be illegal \n try again!")
             self.ask_move()
             pass
+
         board_maker.check_board()
         self.ask_move()
 
